@@ -16,7 +16,7 @@ screenshots という名前でディレクトリも追加しておく
 ```
 
 ## シナリオ内では
-`[takescreenshot filename="（ファイル名）" resolution="1"]`
+`[takess filename="（ファイル名）" resolution="1"]`
 
 という感じで呼ぶ
 

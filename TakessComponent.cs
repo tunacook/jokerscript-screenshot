@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Novel
 {
-    public class TakescreenshotComponent : AbstractComponent
+    public class TakessComponent : AbstractComponent
     {
-        public TakescreenshotComponent()
+        public TakessComponent()
         {
             // パラメータの定義
             this.arrayVitalParam = new List<string>
@@ -35,6 +35,16 @@ namespace Novel
             string filename = this.param["filename"];
             int resolution = int.Parse(this.param["resolution"]);
 
+            // 場所はConfigファイルを参照
+
+            /**
+             * 引数で指定すること
+             * ・ファイル名（ファイルパスではない）
+             * ・何倍の解像度にするか（省略で1倍？）
+             * ・画像サイズ（width）？
+             * ・画像サイズ（height）？
+             */
+
             var filepath = this.gameManager.getConfig("screenshot_path") + filename + ".png";
             Application.CaptureScreenshot(filepath, resolution);
 
@@ -45,6 +55,16 @@ namespace Novel
 
             // GameView再描画
             gameview.Repaint();
+
+
+
+            //            this.gameView.messageArea.GetComponent<Text>().fontStyle = FontStyle.Italic;
+            //this.gameView.messageArea.GetComponent<Text>().font = Font("TFPironv2");
+            //変数に結果を格納
+            //this.gameManager.startTag("[s]");
+
+            //次のシナリオに進む処理
+            //this.gameManager.nextOrder();
         }
     }
 }
