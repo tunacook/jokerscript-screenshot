@@ -1,0 +1,2 @@
+# jokerscript-screenshot
+jokerscriptでスクショを取るプラグイン
