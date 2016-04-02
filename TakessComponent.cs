@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Novel
 {
@@ -29,7 +31,15 @@ namespace Novel
             string filename = this.param["filename"];
             int resolution = int.Parse(this.param["resolution"]);
 
-            var filepath = this.gameManager.getConfig("screenshot_path") + filename + ".png";
+            var storagepath = Application.persistentDataPath + "/screenshots/";
+
+            //ディレクトリがなければ作成
+            if (!Directory.Exists(storagepath))
+            {
+                Directory.CreateDirectory(storagepath);
+            }
+
+            var filepath = storagepath + filename + ".png";
             Application.CaptureScreenshot(filepath, resolution);
         }
     }
