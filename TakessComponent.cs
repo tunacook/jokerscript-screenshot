@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -32,14 +31,6 @@ namespace Novel
 
             var filepath = this.gameManager.getConfig("screenshot_path") + filename + ".png";
             Application.CaptureScreenshot(filepath, resolution);
-
-            var assembly = typeof(UnityEditor.EditorWindow).Assembly;
-            var type = assembly.GetType("UnityEditor.GameView");
-
-            var gameview = EditorWindow.GetWindow(type);
-
-            // GameView再描画
-            gameview.Repaint();
         }
     }
 }
